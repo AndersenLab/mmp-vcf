@@ -1,0 +1,63 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##samtoolsVersion=1.1-4-g9c4099f+htslib-1.1-3-g5b98adc
+##samtoolsCommand=samtools mpileup -t DP,DV,DP4,SP -g -f /lscr2/andersenlab/dec211/pyPipeline/genomes/WS245/c_elegans.PRJNA13758.WS245.genomic.fa.gz -r I:1-200000 v2_snpset/bam/WN2001.bam
+##reference=file:///lscr2/andersenlab/dec211/pyPipeline/genomes/WS245/c_elegans.PRJNA13758.WS245.genomic.fa.gz
+##contig=<ID=I,length=15072434>
+##contig=<ID=II,length=15279421>
+##contig=<ID=III,length=13783801>
+##contig=<ID=IV,length=17493829>
+##contig=<ID=V,length=20924180>
+##contig=<ID=X,length=17718942>
+##contig=<ID=MtDNA,length=13794>
+##ALT=<ID=X,Description="Represents allele(s) other than observed.">
+##INFO=<ID=INDEL,Number=0,Type=Flag,Description="Indicates that the variant is an INDEL.">
+##INFO=<ID=IDV,Number=1,Type=Integer,Description="Maximum number of reads supporting an indel">
+##INFO=<ID=IMF,Number=1,Type=Float,Description="Maximum fraction of reads supporting an indel">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Raw read depth">
+##INFO=<ID=VDB,Number=1,Type=Float,Description="Variant Distance Bias for filtering splice-site artefacts in RNA-seq data (bigger is better)",Version="3">
+##INFO=<ID=RPB,Number=1,Type=Float,Description="Mann-Whitney U test of Read Position Bias (bigger is better)">
+##INFO=<ID=MQB,Number=1,Type=Float,Description="Mann-Whitney U test of Mapping Quality Bias (bigger is better)">
+##INFO=<ID=BQB,Number=1,Type=Float,Description="Mann-Whitney U test of Base Quality Bias (bigger is better)">
+##INFO=<ID=MQSB,Number=1,Type=Float,Description="Mann-Whitney U test of Mapping Quality vs Strand Bias (bigger is better)">
+##INFO=<ID=SGB,Number=1,Type=Float,Description="Segregation based metric.">
+##INFO=<ID=MQ0F,Number=1,Type=Float,Description="Fraction of MQ0 reads (smaller is better)">
+##FORMAT=<ID=HP,Number=1,Type=String,Description="Flag used to mark whether a variant was polarized">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="List of Phred-scaled genotype likelihoods">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Number of high-quality bases">
+##FORMAT=<ID=DV,Number=1,Type=Integer,Description="Number of high-quality non-reference bases">
+##FORMAT=<ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-fwd, ref-reverse, alt-fwd and alt-reverse bases">
+##FORMAT=<ID=SP,Number=1,Type=Integer,Description="Phred-scaled strand bias P-value">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##INFO=<ID=ICB,Number=1,Type=Float,Description="Inbreeding Coefficient Binomial test (bigger is better)">
+##INFO=<ID=HOB,Number=1,Type=Float,Description="Bias in the number of HOMs number (smaller is better)">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes for each ALT allele, in the same order as listed">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##INFO=<ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+##INFO=<ID=MQ,Number=1,Type=Integer,Description="Average mapping quality">
+##bcftools_callVersion=1.1-11-g1dc8fec+htslib-1.1-3-g5b98adc
+##bcftools_callCommand=call --skip-variants indels -m -T v2_snpset/bcftools.union_rare.txt -O z
+##bcftools_concatVersion=1.1-11-g1dc8fec+htslib-1.1-3-g5b98adc
+##bcftools_viewVersion=1.1-11-g1dc8fec+htslib-1.1-3-g5b98adc
+##bcftools_viewCommand=view -O v
+##FILTER=<ID=LOW_QUAL,Description="Set if true: QUAL < 30">
+##bcftools_filterVersion=1.1-11-g1dc8fec+htslib-1.1-3-g5b98adc
+##bcftools_filterCommand=filter -O u --soft-filter LOW_QUAL --exclude 'QUAL < 30'
+##FILTER=<ID=MIN_DEPTH,Description="Set if true: DP < 3">
+##bcftools_filterCommand=filter -O u --soft-filter MIN_DEPTH --exclude 'DP < 3'
+##FILTER=<ID=MAX_DEPTH,Description="Set if true: DP > 2000">
+##bcftools_filterCommand=filter -O u --soft-filter MAX_DEPTH --exclude 'DP > 2000'
+##bcftools_viewCommand=view -O z
+##FILTER=<ID=null,Description="Set if not true: 1 == 1">
+##bcftools_filterCommand=filter --mode x --soft-filter null --include '1 == 1' WN2001.bcftools.union.vcf.gz
+##FILTER=<ID=Mapping_Qual,Description="Set if not true: INFO/MQ >= 59">
+##bcftools_filterCommand=filter --mode + --soft-filter Mapping_Qual --include 'INFO/MQ >= 59'
+##FILTER=<ID=min_depth,Description="Set if not true: INFO/DP > 10">
+##bcftools_filterCommand=filter --mode + --soft-filter min_depth --include 'INFO/DP > 10'
+##FILTER=<ID=max_depth,Description="Set if not true: INFO/DP<904.248">
+##bcftools_filterCommand=filter --mode + --soft-filter max_depth --include INFO/DP<904.248
+##FILTER=<ID=mq0f_lt_5,Description="Set if not true: MQ0F <= 5">
+##bcftools_filterCommand=filter --mode + --soft-filter mq0f_lt_5 --include 'MQ0F <= 5'
+##bcftools_viewVersion=1.1+htslib-1.1
+##bcftools_viewCommand=view -h WN2001.bcftools.union.filtered.vcf.gz
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	__SAMPLE__
